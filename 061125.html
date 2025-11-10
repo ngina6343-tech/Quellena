@@ -1,0 +1,128 @@
+<HTML>
+<HEAD>
+<TITLE>HTML und CSS</TITLE>
+<STYLE>
+BODY
+{
+font-family: arial;
+font-size: 20;
+color: darkblue;
+background-color: lightblue;
+background-image: url(malve.jpg);
+background-image: linear-gradient(to right, lightgrey, blue);
+}
+TABLE
+{
+border-style: solid;
+border-width: thin;
+border-color: darkblue;
+
+margin-left: 40%;
+margin-right: 40%;
+margin-top: 10%;
+
+background-image: linear-gradient(to left, lightblue, gold);
+opacity: 0.5;     
+
+/* border-collapse: collapse;  */      
+/* border-radius: 50%;   */                            
+}
+TD
+{
+border-style: solid;
+border-width: thin;
+border-color: darkblue;
+border-radius: 10%;
+}
+A
+{
+font-size: 20;
+text-decoration: none;
+color: darkgreen;
+}
+LABEL
+{
+/*	margin-left: 20%; */
+	display: inline-block;
+	width: 30%;
+}
+UL
+{
+list-style: none;
+}
+LI
+{
+background-color: lightgrey;
+margin-left: 20%;
+border-style: solid;
+border-width:2;
+display: block;
+width: 40%;
+height: 8%;
+}
+table
+{
+transform: rotate(10deg);
+}
+
+</STYLE>
+<HEAD>
+<BODY>
+<TABLE>
+<CAPTION>Tabelle</CAPTION>
+<TR><TD colspan=2><INPUT type=text></INPUT></TD><TD><A HREF="https://chatgpt.com"><IMG src=malve.jpg width=80 height=100></IMG>click</TD></TR>
+<TR><TD rowspan=2>1</TD><TD>2</TD><TD>3</TD></TR>
+<TR><TD>1</TD><TD>2</TD></TR>
+</TABLE>
+<BR>
+<BR>
+<!-- Eingabefelder -->
+<UL>
+<LI><LABEL>Eingabe als Text:</LABEL><INPUT type=text></INPUT></LI>
+<LI><LABEL>Farbe auswählen: </LABEL><INPUT type=color></INPUT></LI>
+<LI><LABEL>Datum auswählen: </LABEL><INPUT type=date></INPUT><LI>
+<LI><LABEL>Datei auswählen: </LABEL><INPUT type=file></INPUT></LI>
+<LI><LABEL>Passwort: </LABEL><INPUT type=password></INPUT></LI>
+</UL>
+<BR>
+<BR>
+<!-- Links -->
+<A HREF=https://w3schools.com>HTML</A><BR>
+<A HREF=#>HOME</A>
+<BR>
+<BR>
+<IMG src=malve.jpg width=80 height=100></IMG><BR>
+<IMG src=malve1.jpg ALT="Bild fehlt"></IMG><BR>
+<IMG src=malve1.jpg ></IMG>Bild fehlt<BR>
+<BR>
+<!-- Bildbereiche als Links -->
+<IMG src=malve.jpg USEMAP="#click" width=150 height=150>
+<MAP name=click>
+	<AREA shape=rect coords="1,1, 50,50" HREF="http://google.com">
+</MAP>
+<!-- Auswahlmöglichkeiten -->
+<!-- Optionsfelder -->
+<H3>Optionsfeld</H3>
+<INPUT type=radio name=rb value=Kaffee>Kaffee</INPUT></BR>
+<INPUT type=radio name=rb value=Tee>Tee</INPUT></BR>
+<INPUT type=radio name=rb value=Wasser>Wasser</INPUT></BR>
+<H3>Auswahl aus einer Liste</H3>
+<SELECT>
+	<OPTION>Kaffee</OPTION>
+	<OPTION>Tee</OPTION>
+	<OPTION>Wasser</OPTION>	
+</SELECT>
+<H3>Checkbox</H3>
+<INPUT type=checkbox  value=Kaffee>Kaffee</INPUT><BR>
+<INPUT type=checkbox  value=Tee>Tee</INPUT><BR>
+<INPUT type=checkbox  value=Wasser>Wasser</INPUT><BR>
+<H3>Buttons</H3>
+<FIELDSET>
+<LEGEND>Buttons</LEGEND>
+<INPUT type=button value="Input button"></INPUT><BR>
+<BUTTON value="Button">Button</BUTTON><BR>
+<BUTTON type=submit>submit</BUTTON><BR>
+<BUTTON type=reset>reset</BUTTON><BR>
+</FIELDSET>
+<H3>mehrzeiliger Text</H3>
+<TEXTAREA rows=5 cols=40></TEXTAREA>
