@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="mn">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>You got hacked — Demo (Nagi)</title>
+  <title>SIE WURDEN GEHACKT! — Demo (Nagi)</title>
   <style>
     :root{
       --bg:#071026; --card:#0b1220; --accent:#7c3aed; --muted:#94a3b8;
       --glass: rgba(255,255,255,0.03);
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans";
     }
     html,body{height:100%;margin:0;background:linear-gradient(180deg,#020617,#071026);color:#e6eef8}
     .container{max-width:980px;margin:28px auto;padding:18px}
@@ -23,7 +23,7 @@
       background:linear-gradient(180deg, rgba(2,6,23,0.95), rgba(2,6,23,0.88));
       z-index:9999;flex-direction:column;padding:24px;text-align:center;gap:18px;
     }
-    .overlay h2{font-size:42px;letter-spacing:2px;margin:0;color:#ffdddd;text-shadow:0 6px 20px rgba(0,0,0,0.6)}
+    .overlay h2{font-size:7rem;letter-spacing:2px;margin:0;color:#8b0000;text-shadow:0 6px 20px rgba(0,0,0,0.6)}
     .overlay p{color:var(--muted);max-width:720px}
     .cta{padding:14px 20px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#5b21b6);border:none;color:white;font-weight:700;cursor:pointer;font-size:16px}
     .secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#cfe8ff;padding:10px 14px;border-radius:10px;cursor:pointer}
@@ -34,6 +34,7 @@
     .sources{display:none;margin-top:12px}
     .sources.show{display:block}
     .sources a{display:block;padding:8px 0;color:#cfe8ff;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,0.03)}
+    .sources a:focus{outline:2px solid rgba(124,58,237,0.45)}
     .small{color:var(--muted);font-size:13px}
     footer{color:var(--muted);font-size:13px;margin-top:12px}
     @media (max-width:720px){.overlay h2{font-size:28px}}
@@ -42,8 +43,89 @@
 <body>
   <!-- Fullscreen overlay shown first -->
   <div id="overlay" class="overlay" role="alertdialog" aria-modal="true" aria-labelledby="hack-title">
-    <h2 id="hack-title">YOU GOT HACKED!</h2>
-    <p>Энэ нь <strong>шог</strong> / презентацын демонстраци юм. Бодит мэдээлэл цуглуулах зориулалттай биш. Дараагийн удаа болгоомжтой байгаарай.</p>
+    <h2 id="hack-title">YOU GOT HACKED!!!</h2>
+    <p>Dies ist ein <strong>Witz / Demo</strong> für Ihre Präsentation. Es werden <em>keine</em> echten Daten gesammelt. Beim nächsten Mal: sei vorsichtig.</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
-      <button id="revealBtn" class="cta">Болгоомжтой байх — Эх сурвалжуудыг үзэх</button>
-      <button id="dismissBtn" class="secondary">Зүгээр л шог болгох — хаах
+      <button id="revealBtn" class="cta">Quellen anzeigen</button>
+      <button id="dismissBtn" class="secondary">ohne Quellen</button>
+    </div>
+  </div>
+
+  <!-- Page content (under overlay) -->
+  <div id="page" class="container main" aria-hidden="true">
+    <header>
+      <div class="logo">PH</div>
+      <div>
+        <h1>Phishing : Quellen</h1>
+             </div>
+    </header>
+
+    <main style="margin-top:18px">
+      <div class="card">
+        <h3 style="margin-top:0">Hinweis</h3>
+        <p class="small">Dieser Block dient als scherzhafte / warnende Einblendung für Ihre Präsentation. Es darf niemandem damit geschadet werden — dies ist nur zu Lehrzwecken.</p>
+
+        <div style="margin-top:12px">
+          <h4>Quellen</h4>
+          <div id="sources" class="sources small" aria-live="polite">
+            <!-- user-provided links (open in new tab; no mutation on click) -->
+            <a href="https://www.kaspersky.de/resource-center/threats" target="_blank" rel="noopener noreferrer">Kaspersky — Threats (Resource Center)</a>
+            <a href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/passwortdiebstahl-durch-phishing_node.html" target="_blank" rel="noopener noreferrer">BSI — Passwortdiebstahl durch Phishing (DE)</a>
+            <a href="https://support.microsoft.com/de-de/windows/sch%C3%BCtzen-sie-s-vor-phishing-0c7ea947-ba98-3bd9-7184-430e1f860a44" target="_blank" rel="noopener noreferrer">Microsoft — Schützen Sie sich vor Phishing (DE)</a>
+            <a href="https://www.ibm.com/de-de/think/topics/phishing" target="_blank" rel="noopener noreferrer">IBM — Phishing (DE)</a>
+            <a href="https://mn.eyewated.com/voip-phishing-voip-phishing-%D0%B3%D1%8D%D0%B6-%D1%8E%D1%83-%D0%B2%D1%8D-%D1%8D%D0%BD%D1%8D-%D0%BD%D1%8C-%D1%85%D1%8D%D1%80%D1%85%D1%8D%D0%BD-%D0%B0%D0%B6%D0%B8%D0%BB%D0%BB%D0%B0%D0%B4%D0%B0%D0%B3/" target="_blank" rel="noopener noreferrer">Eyewated.mn — VOIP Phishing (MN)</a>
+          </div>
+        </div>
+
+      </div>
+
+      <footer>
+        <div class="small">Hinweis: Es gibt keinen Code zur Datenerfassung auf dieser Seite. Links führen nur zu den Originalquellen.</div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Verhalten: Overlay zeigt sich zuerst. revealBtn => Overlay schließen und Quellen sichtbar machen.
+    const overlay = document.getElementById('overlay');
+    const page = document.getElementById('page');
+    const revealBtn = document.getElementById('revealBtn');
+    const dismissBtn = document.getElementById('dismissBtn');
+    const sources = document.getElementById('sources');
+
+    // Sicherstellen: Beim Anklicken der Quellen passiert nur das Öffnen in neuem Tab.
+    // Keine DOM-Änderungen, keine Formulare, kein Fetch/XHR.
+    const linkHandler = (event) => {
+      // Standardverhalten: link hat target="_blank" und rel="noopener noreferrer"
+      // Wir verhindern absichtlich keine Navigation — wir öffnen in neuem Tab.
+      // Keine other side-effects.
+    };
+
+    // Reveal: Overlay ausblenden, Seite sichtbar machen und Links einblenden.
+    revealBtn.addEventListener('click', () => {
+      overlay.style.display = 'none';
+      page.classList.add('visible');
+      page.setAttribute('aria-hidden','false');
+      sources.classList.add('show');
+      // focus first link for accessibility
+      const firstLink = sources.querySelector('a');
+      if (firstLink) firstLink.focus();
+    });
+
+    // Dismiss: Overlay ausblenden, Seite sichtbar machen, Links bleiben verborgen.
+    dismissBtn.addEventListener('click', () => {
+      overlay.style.display = 'none';
+      page.classList.add('visible');
+      page.setAttribute('aria-hidden','false');
+      // sources remain hidden
+    });
+
+    // Attach no-op handler (keeps behavior explicit)
+    Array.from(document.querySelectorAll('#sources a')).forEach(a => {
+      a.addEventListener('click', linkHandler);
+    });
+
+    // Security note: No data collection, no network activity from this page except when user clicks links.
+  </script>
+</body>
+</html>
