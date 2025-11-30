@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Phishing Demo & Resources — Анхааруулга</title>
+  <meta name="description" content="Phishing/спам талаархи мэдээлэл, эх сурвалжууд ба сургалтын демонстраци (You got hacked!)" />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#7c3aed; /* purple-ish */
+      --muted:#94a3b8;
+      --danger:#ef4444;
+      --glass: rgba(255,255,255,0.03);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071026 0%, #071833 60%);color:#e6eef8}
+    .wrap{max-width:980px;margin:32px auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center}
+    .logo{
+      width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#4c1d95);
+      display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;box-shadow:0 6px 18px rgba(0,0,0,0.6);
+    }
+    h1{margin:0;font-size:20px}
+    p.lead{color:var(--muted);margin-top:6px}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:20px;margin-top:20px}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    .sources a{display:block;color:#cfe8ff;text-decoration:none;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
+    .sources a:hover{text-decoration:underline}
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#5b21b6);color:white;text-decoration:none;font-weight:600;cursor:pointer;border:none;
+    }
+    .danger-banner{
+      margin-top:18px;padding:16px;border-radius:10px;background:linear-gradient(90deg, rgba(239,68,68,0.12), rgba(239,68,68,0.06));color:#ffdcdc;border:1px solid rgba(239,68,68,0.12)
+    }
+    .simulate{
+      margin-top:14px;
+      display:flex;gap:10px;flex-wrap:wrap;
+    }
+    .small{font-size:13px;color:var(--muted)}
+    .hero{
+      height:180px;border-radius:10px;background:linear-gradient(180deg, rgba(124,58,237,0.12), rgba(124,58,237,0.04));display:flex;align-items:center;justify-content:space-between;padding:18px;gap:12px;
+    }
+    .hero .left{max-width:60%}
+    .hero h2{margin:0;font-size:18px}
+    .hero p{margin:6px 0 0;color:var(--muted);font-size:13px}
+    .media-placeholder{width:120px;height:120px;border-radius:8px;background:linear-gradient(180deg,#071a3a,#071022);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+    /* modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.7);display:none;align-items:center;justify-content:center;z-index:50}
+    .modal{background:linear-gradient(180deg,#071026,#071022);padding:20px;border-radius:12px;max-width:520px;width:92%;box-shadow:0 10px 40px rgba(2,6,23,0.8);border:1px solid rgba(255,255,255,0.03)}
+    .modal h3{margin:0}
+    .modal .meta{color:var(--muted);font-size:13px;margin-top:6px}
+    .modal .actions{margin-top:14px;display:flex;gap:10px;justify-content:flex-end}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--glass);font-size:13px;color:var(--muted)}
+    code{background:rgba(255,255,255,0.02);padding:2px 6px;border-radius:6px;color:#dbeafe}
+    @media (max-width:880px){.grid{grid-template-columns:1fr;}.media-placeholder{display:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">PH</div>
+      <div>
+        <h1>Phishing: Сургалтын демонстраци ба эх сурвалжууд</h1>
+        <p class="lead">Энэхүү жижиг сайт нь <strong>аковирлахгүй</strong> сургалт, анхааруулах зорилготой. Эх сурвалжууд доор жагсаалттай.</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- main -->
+      <main class="card">
+        <div class="hero" role="region" aria-label="Demo hero">
+          <div class="left">
+            <h2>Анхаар! Сурталчилгааны демонстраци</h2>
+            <p>Доорх товчнууд нь жишигт зориулсан бөгөөд бодит нууц үг эсвэл хувийн мэдээлэл цуглуулахгүй.</p>
+            <div style="margin-top:8px;">
+              <span class="chip">Сургалт</span>
+              <span class="chip">Phishing</span>
+            </div>
+          </div>
+          <div class="media-placeholder" aria-hidden="true">
+            <!-- Simple animated SVG as placeholder -->
+            <svg width="88" height="88" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="animated lock">
+              <rect x="18" y="44" width="64" height="38" rx="6" fill="rgba(255,255,255,0.04)"/>
+              <path d="M50 20C40 20 36 30 36 36" stroke="white" stroke-opacity="0.7" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="50" cy="62" r="6" fill="rgba(255,255,255,0.85)"/>
+            </svg>
+          </div>
+        </div>
+
+        <section style="margin-top:16px">
+          <h3 style="margin:0 0 8px 0">Демонстрац — "You got hacked"</h3>
+          <div class="danger-banner" role="alert">
+            <strong style="font-size:15px">You got hacked — Сурталчилгаа</strong>
+            <div class="small" style="margin-top:8px">
+              Энэ нь зөвхөн *сургалт* юм. Бодит хэн нэгний нууц үг авалт, эсвэл хохироох үйлдэл хийх зорилготой биш.
+            </div>
+            <div class="simulate">
+              <button id="showBreach" class="btn" aria-haspopup="dialog">Демонстраци үзэх</button>
+              <button id="toggleFake" class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.06)">GIF/Зураг солих</button>
+            </div>
+          </div>
+        </section>
+
+        <section style="margin-top:16px">
+          <h3 style="margin:0 0 8px 0">Тайлбар</h3>
+          <p class="small">Эдгээр эх сурвалжуудаас phishing-ийн төрөл, хэрхэн хамгаалах, бодит жишээг судалж, сургалт хийхэд хэрэг болно. Доорх эх сурвалж бүр нь найдвартай мэдээлэл өгнө.</p>
+        </section>
+
+        <section style="margin-top:14px">
+          <h3 style="margin:0 0 8px 0">GitHub-д хэрэглэх заавар</h3>
+          <ol class="small">
+            <li>Шинэ репо үүсгээд `index.html` файлыг байршуулна.</li>
+            <li>GitHub Pages идэвхжүүлж, репог `main`/`master` салбараас serve хийнэ.</li>
+            <li>Зураг/GIF нэмэх бол `assets/` дотроо байрлуулаад <code>&lt;img src="assets/your.gif"&gt;</code> ашиглана.</li>
+          </ol>
+        </section>
+
+        <footer>
+          <div>Бичсэн: Nagi-д зориулсан демо · Санамж: энэхүү сайт нь зүгээр л сургалтын зориулалттай.</div>
+        </footer>
+      </main>
+
+      <!-- sidebar -->
+      <aside class="card" aria-label="Sources & links">
+        <h3>Эх сурвалжууд</h3>
+        <div class="sources small" style="margin-top:8px">
+          <!-- The links the user provided, shown clearly -->
+          <a href="https://www.kaspersky.de/resource-center/threats" target="_blank" rel="noopener noreferrer">Kaspersky — Threats (resource center)</a>
+          <a href="https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Cyber-Sicherheitslage/Methoden-der-Cyber-Kriminalitaet/Spam-Phishing-Co/Passwortdiebstahl-durch-Phishing/passwortdiebstahl-durch-phishing_node.html" target="_blank" rel="noopener noreferrer">BSI — Passwortdiebstahl durch Phishing (DE)</a>
+          <a href="https://support.microsoft.com/de-de/windows/sch%C3%BCtzen-sie-s-vor-phishing-0c7ea947-ba98-3bd9-7184-430e1f860a44" target="_blank" rel="noopener noreferrer">Microsoft Support — Schützen Sie sich vor Phishing (DE)</a>
+          <a href="https://www.ibm.com/de-de/think/topics/phishing" target="_blank" rel="noopener noreferrer">IBM — Phishing (DE)</a>
+          <a href="https://mn.eyewated.com/voip-phishing-voip-phishing-%D0%B3%D1%8D%D0%B6-%D1%8E%D1%83-%D0%B2%D1%8D-%D1%8D%D0%BD%D1%8D-%D0%BD%D1%8C-%D1%85%D1%8D%D1%80%D1%85%D1%8D%D0%BD-%D0%B0%D0%B6%D0%B8%D0%BB%D0%BB%D0%B0%D0%B4%D0%B0%D0%B3/" target="_blank" rel="noopener noreferrer">Eyewated.mn — VOIP Phishing (MN)</a>
+        </div>
+
+        <div style="margin-top:12px">
+          <h4 style="margin:6px 0">Дадлагын холбоос</h4>
+          <p class="small">Доорх товчлуурууд нь зөвхөн демонстраци — өгөгдөл цуглуулахгүй.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
+            <button id="fakeLogin" class="btn" style="background:#1f2937">Fake Login</button>
+            <button id="fakeEmail" class="btn" style="background:#0ea5a9">Fake Email</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- modal (hidden by default) -->
+  <div id="modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document">
+      <h3>You got hacked — Сургалтын демо</h3>
+      <p class="meta">Энэ нь демонстраци бөгөөд ямар ч хувийн мэдээлэл цуглуулаагүй. Бүх үйлдэл локал ба тусдаа.</p>
+      <div style="margin-top:12px;">
+        <p class="small">Танд энэ мэт мессеж ирэх үед:</p>
+        <ul class="small">
+          <li>Хэнд ч нууц үг битгий илгээгээрэй.</li>
+          <li>Холбоос дээр дарж хувийн мэдээлэл оруулахгүй байх.</li>
+          <li>Хүчтэй, давтагдашгүй нууц үг ашиглах ба 2FA идэвхжүүлэх.</li>
+        </ul>
+      </div>
+      <div class="actions">
+        <button id="closeModal" class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.06)">Хаах</button>
+        <button id="learnMore" class="btn">Илүү их үзэх</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple client-side JS — No data collection
+    const modal = document.getElementById('modal');
+    const showBreach = document.getElementById('showBreach');
+    const closeModal = document.getElementById('closeModal');
+    const learnMore = document.getElementById('learnMore');
+    const fakeLogin = document.getElementById('fakeLogin');
+    const fakeEmail = document.getElementById('fakeEmail');
+    const toggleFake = document.getElementById('toggleFake');
+
+    showBreach.addEventListener('click', ()=> {
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden','false');
+    });
+    closeModal.addEventListener('click', ()=> {
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden','true');
+    });
+    learnMore.addEventListener('click', ()=> {
+      // open a trusted resources page in new tab (example: Kaspersky)
+      window.open('https://www.kaspersky.de/resource-center/threats', '_blank', 'noopener');
+    });
+
+    // These "fake" buttons are local simulations — they don't submit anything.
+    fakeLogin.addEventListener('click', ()=> {
+      alert("Энэ нь Fake Login демонстраци — мэдээлэл илгээгдэлгүй. Энэ товчийг өөрчилж, сургалтын форм нэмж болно.");
+    });
+    fakeEmail.addEventListener('click', ()=> {
+      alert("Энэ нь Fake Email демонстраци. Бодит имэйланд хариу бүү өгөөрэй.");
+    });
+
+    // toggle visual (placeholder for GIF swap)
+    let alt = false;
+    toggleFake.addEventListener('click', ()=>{
+      alt = !alt;
+      toggleFake.textContent = alt ? "GIF-ээр солив" : "GIF/Зураг солих";
+      alert("Зургийг сольж оруулах бол assets/ дотор өөрийн gif, png-г байрлуулаад HTML-д img-той холбох хэрэгтэй.");
+    });
+  </script>
+</body>
+</html>
